@@ -1,0 +1,43 @@
+public class Tarefa {
+
+    int id;
+    String titulo;
+    String descricao;
+    boolean completa;
+
+    public static void main(String[] args) {
+
+        Tarefa tarefa = new Tarefa(1, "Tarefa 1", "Descrição da tarefa");
+
+
+        System.out.println("ID: " + tarefa.id);
+        System.out.println("Título: " + tarefa.titulo);
+        System.out.println("Descrição: " + tarefa.descricao);
+        System.out.println("Completada: " + tarefa.completa);
+    }
+
+    public Tarefa(int id, String titulo, String descricao) {
+
+        setId(id);
+        setTitulo(titulo);
+        setDescricao(descricao);
+        setCompleta(false);
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setCompleta(boolean completa) {
+        this.completa = completa;
+    }
+}
