@@ -1,3 +1,5 @@
+package com.mycompany.tarefaservico;
+
 public class Tarefa {
 
     int id;
