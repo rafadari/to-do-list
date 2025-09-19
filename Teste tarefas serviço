@@ -1,27 +1,23 @@
 package com.mycompany.tarefaservico;
 
-/**
- *
- * @author rafael.leitao
- */
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Tarefaservico {
-    private List<tarefas> tarefas = new ArrayList<>();
-    private long contadorID = IL;
+public class TarefaServico {
+    private List<Tarefa> tarefas = new ArrayList<>();
+    private long contadorID = 1;
 }
 
-public Tarefas criartarefa(String titulo, String descricao) {
-    Tarefas tarefa = new Tarefas(contadorID++, titulo, descricao, false);
+public Tarefas CriarTarefa(String titulo, String descricao) {
+    Tarefas tarefa = new Tarefa(contadorID++, titulo, descricao, false);
     tarefas.add(tarefa);
 
 return tarefa;
 }
 
-public list<tarefas> listartarefas() {
-return tarefas;
+public list<Tarefa> ListarTarefas() {
+    return Tarefas;
 }
 
 public boolean atualizarTarefa(int id, String novaDescricao) {
@@ -31,10 +27,9 @@ public boolean atualizarTarefa(int id, String novaDescricao) {
                 return true;
             }
         }
-        return false; // Tarefa não encontrada
+        return false;
     }
 
-    // Remover uma tarefa
     public boolean removerTarefa(int id) {
         return tarefas.removeIf(tarefa -> tarefa.getId() == id);
 }
