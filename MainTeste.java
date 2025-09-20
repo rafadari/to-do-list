@@ -52,7 +52,7 @@ public class MainTeste {
                         System.out.println("Tarefa nao encontrada!");
                     }
                 }
-                 case 5 -> {
+                case 5 -> {
                     System.out.print("Digite o ID da tarefa para editar: ");
                     int idEditar = entrada.nextInt();
                     entrada.nextLine(); 
