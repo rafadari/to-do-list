@@ -1,44 +1,59 @@
-package com.mycompany.TarefaServico;
+package ucb.at2.n1.tarefaServico;
 
 import java.util.Scanner;
 
-public class Main {
+public class MainTeste {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        TarefaServico tarefaServico = new TarefaServico();
+        Scanner entrada = new Scanner(System.in);
+        TarefaServico servico = new TarefaServico();
 
         while (true) {
-            System.out.println("\n===== Menu =====");
+            System.out.println("\n===== GERENCIADOR DE TAREFAS =====");
             System.out.println("1. Criar Tarefa");
             System.out.println("2. Listar Tarefas");
-            System.out.println("3. Atualizar Tarefa");
+            System.out.println("3. Marcar como Completa");
             System.out.println("4. Excluir Tarefa");
-            System.out.println("5. Concluir Tarefa");
+            System.out.println("5. Editar Tarefa");
             System.out.println("6. Sair");
-            System.out.print("Escolha uma opção: ");
-            int opcao = scanner.nextInt();
-            scanner.nextLine(); // Consumir a nova linha
+            System.out.print("Escolha uma opcao: ");
+
+            int opcao = entrada.nextInt();
+            entrada.nextLine(); 
 
             switch (opcao) {
-                case 1:
-                    System.out.print("Digite o título da tarefa: ");
-                    String titulo = scanner.nextLine();
-                    System.out.print("Digite a descrição da tarefa: ");
-                    String descricao = scanner.nextLine();
-                    tarefaServico.criarTarefa(titulo, descricao);
-                    break;
+                case 1 -> {
+                    System.out.print("Entre com o Titulo: ");
+                    String titulo = entrada.nextLine();
+                    System.out.print("Digite a Descricao: ");
+                    String descricao = entrada.nextLine();
 
-                case 2:
-                    tarefaServico.listarTarefas();
-                    break;
+                    Tarefa nova = servico.criarTarefa(titulo, descricao);
+                    System.out.println("Tarefa criada com sucesso: " + nova.getTitulo());
+                }
+                case 2 -> servico.mostrarTarefas();
 
-                case 3:
-                    System.out.print("Digite o ID da tarefa a ser atualizada: ");
-                    int idAtualizar = scanner.nextInt();
-                    scanner.nextLine(); // Consumir a nova linha
-                    System.out.print("Digite o novo título: ");
-                    String novoTitulo = scanner.nextLine();
-                    System.out.print("Digite a nova descrição: ");
-                    String novaDescricao = scanner.nextLine();
-                    tarefaServico.atualizarTarefa(idAtualizar, novoTitulo, novaDescricao);
-                    break;
+                case 3 -> {
+                    System.out.print("Digite o ID da tarefa para marcar como completa: ");
+                    int idCompleta = entrada.nextInt();
+
+                    if (servico.concluirTarefa(idCompleta)) {
+                        System.out.println("Tarefa marcada como completa!");
+                    } else {
+                        System.out.println("Tarefa nao encontrada!");
+                    }
+                }
+                case 4 -> {
+                    System.out.print("Digite o ID da tarefa para excluir: ");
+                    int idRemover = entrada.nextInt();
+
+                    if (servico.removerTarefa(idRemover)) {
+                        System.out.println("Tarefa excluida com sucesso!");
+                    } else {
+                        System.out.println("Tarefa nao encontrada!");
+                    }
+                }
+                
+            }
+        }
+    }
+}
