@@ -52,7 +52,27 @@ public class MainTeste {
                         System.out.println("Tarefa nao encontrada!");
                     }
                 }
-                
+                 case 5 -> {
+                    System.out.print("Digite o ID da tarefa para editar: ");
+                    int idEditar = entrada.nextInt();
+                    entrada.nextLine(); 
+
+                    System.out.print("Novo Titulo: ");
+                    String novoTitulo = entrada.nextLine();
+                    System.out.print("Nova Descricao: ");
+                    String novaDescricao = entrada.nextLine();
+
+                    if (servico.atualizarTarefa(idEditar, novoTitulo, novaDescricao)) {
+                        System.out.println("Tarefa atualizada com sucesso!");
+                    } else {
+                        System.out.println("Tarefa nao encontrada!");
+                    }
+                }
+                case 6 -> {
+                    System.out.println("Saindo...");
+                    entrada.close();
+                    return;
+                }
             }
         }
     }
